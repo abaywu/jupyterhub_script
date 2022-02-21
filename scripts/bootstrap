@@ -1,0 +1,21 @@
+#!/bin/bash
+
+pip install notebook jupyterlab jupyterhub-nativeauthenticator
+
+cat <<EOF
+import os, nativeauthenticator, pwd, subprocess
+c.JupyterHub.authenticator_class = 'nativeauthenticator.NativeAuthenticator'
+c.JupyterHub.template_paths = [f"{os.path.dirname(nativeauthenticator.__file__)}/templates/"]
+c.Authenticator.admin_users = {'admin'}
+def pre_spawn_hook(spawner):
+    user_name = spawner.user.name
+    try:
+        pwd.getpwnam(user_name)
+    except KeyError:
+        subprocess.check_call(['useradd', '-ms', '/bin/bash', user_name])
+
+c.Spawner.pre_spawn_hook = pre_spawn_hook
+# default instance is jupyterlb 
+c.Spawner.default_url = '/lab'
+EOF >> ./jupyterhub_config.py
+
