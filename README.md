@@ -9,7 +9,7 @@ Using offical docker image to Jupyterhub
 Run a JupyterHub container
 
 ```bash=
-$ docker run -ti -p 8000:8000 --name jupyterhub jupyterhub/jupyterhub bash
+docker run -ti -p 8000:8000 --name jupyterhub jupyterhub/jupyterhub bash
 ```
 ## Step 2
 

@@ -2,7 +2,7 @@
 
 pip install notebook jupyterlab jupyterhub-nativeauthenticator
 
-mkdir -p /etc/jupyterhub
+mkdir /etc/jupyterhub
 
 jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub_config.py
 
