@@ -26,7 +26,6 @@ $ jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub_config.py
 Setup the container 
 
 ```bash=
-$ cd /etc/jupyterhub
 $ curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/scripts/bootstrap | bash 
 ```
 
