@@ -19,3 +19,5 @@ c.Spawner.pre_spawn_hook = pre_spawn_hook
 c.Spawner.default_url = '/lab'
 EOF
 
+jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
+

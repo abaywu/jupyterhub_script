@@ -29,13 +29,7 @@ Setup the container
 $ curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/scripts/bootstrap | bash 
 ```
 
-Start Jupyterhub
-
-```bash=
-$ jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
-```
-
-## Step 4
+## Step 3
 
 Create Admin user
 
