@@ -11,22 +11,12 @@ Run a JupyterHub container
 ```bash=
 $ docker run -ti -p 8000:8000 --name jupyterhub jupyterhub/jupyterhub bash
 ```
-
 ## Step 2
 
-create the configuration file for JupyterHub
+Bootstrap jupyterhub 
 
 ```bash=
-$ mkdir /etc/jupyterhub
-$ jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub_config.py
-```
-
-## Step 3
-
-Setup the container 
-
-```bash=
-$ curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/scripts/bootstrap | bash 
+curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/scripts/bootstrap | bash 
 ```
 
 ## Step 3

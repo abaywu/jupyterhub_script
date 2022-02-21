@@ -2,6 +2,11 @@
 
 pip install notebook jupyterlab jupyterhub-nativeauthenticator
 
+mkdir -p /etc/jupyterhub
+
+jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub_config.py
+
+
 cat <<EOF >> /etc/jupyterhub/jupyterhub_config.py
 import os, nativeauthenticator, pwd, subprocess
 c.JupyterHub.authenticator_class = 'nativeauthenticator.NativeAuthenticator'
