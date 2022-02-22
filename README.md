@@ -19,6 +19,12 @@ Bootstrap jupyterhub
 curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/bootstrap | bash 
 ```
 
+or run a container with bootstrap
+
+```bash=
+docker run -ti -p 8000:8000 --name jupyterhub jupyterhub/jupyterhub bash -c "curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/bootstrap | bash"
+```
+
 ### Step 3
 
 Create Admin user
