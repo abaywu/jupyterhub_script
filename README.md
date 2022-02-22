@@ -16,7 +16,7 @@ docker run -ti -p 8000:8000 --name jupyterhub jupyterhub/jupyterhub bash
 Bootstrap jupyterhub 
 
 ```bash=
-curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/scripts/bootstrap | bash 
+curl https://raw.githubusercontent.com/abaywu/jupyterhub_script/main/bootstrap | bash 
 ```
 
 ## Step 3
