@@ -1,11 +1,13 @@
 #!/bin/bash
+echo "Installing packages..."
+pip install notebook jupyterlab jupyterhub-nativeauthenticator nbgitpuller
 
-pip install notebook jupyterlab jupyterhub-nativeauthenticator
-
+echo "Creating configuration..."
 mkdir /etc/jupyterhub
 
 jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub_config.py
 
+echo "Patching configuration file..."
 
 cat <<EOF >> /etc/jupyterhub/jupyterhub_config.py
 import os, nativeauthenticator, pwd, subprocess
@@ -21,8 +23,11 @@ def pre_spawn_hook(spawner):
 
 c.Spawner.pre_spawn_hook = pre_spawn_hook
 # default instance is jupyterlb 
-c.Spawner.default_url = '/lab'
+c.Spawner.default_url = '/tree'
 EOF
+
+echo "Copying template file..."
+cp /usr/local/lib/python3.8/dist-packages/nbgitpuller/templates/status.html /usr/local/lib/python3.8/dist-packages/notebook/templates/
 
 echo "Starting Jupyterhub..."
 jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
